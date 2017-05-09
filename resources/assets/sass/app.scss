@@ -6,4 +6,91 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+nav.nav {
+}
+.contactSearch {
+  text-align: center;
+  margin: 25px;
+}
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.contactBox {
+  position: relative;
+  padding: 24px;
+  width: 450px;
+  margin: 20px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.03);
+  display: flex;
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    @media screen and (max-width: 767px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  .contactBox__rightContent {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      color: #363636;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+
+//single.html
+.singleContact {
+  text-align: center;
+  margin-top: 25px;
+  img {
+    max-width: 200px;
+  }
+  p.city {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  .mnemonics {
+    padding: 20px 0;
+    text-align: left;
+  }
+  .status {
+    .single_status {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px dotted #eee; 
+    }
+    .status_header {
+      padding: 10px 0;
+      border-bottom: 1px dotted #eee; 
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+.formpage {
+  margin-top: 25px;
+  .single_left_label {
+    margin-right: 10px;
+    line-height: 28px;
+  }
+}

@@ -11,10 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('contacts.index');
+// });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('/', [
+      'uses' => 'ContactController@index',
+      'as' => 'home'
+    ]);
+  Route::get('/create', [
+      'uses' => 'ContactController@create',
+      'as' => 'create'
+    ]);
+  Route::get('/profile/{slug}', [
+      'uses' => 'ContactController@show',
+      'as' => 'show'
+    ]);
+  Route::post('/', 'ContactController@store');
+});
