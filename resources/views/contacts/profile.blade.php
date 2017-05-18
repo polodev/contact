@@ -48,6 +48,18 @@
             <p class="title">Mnemonics:</p>
             {!! $contact->mnemonics !!}
           </div>
+          <div class="editDelete">
+            <div>
+              <a class="button is-info" href="/profile/edit"> Edit</a>
+            </div>
+            <div>
+              <form action="/profile/delete" method="post">
+                {{csrf_field()}}
+                <input type="hidden" name="id" id="{{$contact->id}}">
+                <input type="submit" class="button is-danger" value="Delete">
+              </form>
+            </div>
+          </div>
         </div>
         <div class="box">
           <div class="status">
