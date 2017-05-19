@@ -30,7 +30,7 @@ class CreateContactsTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
-            $table->text('mnemonics')->nullable();
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }

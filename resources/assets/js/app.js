@@ -16,7 +16,16 @@ window.Vue = require('vue');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('create-contact', require('./components/createContact.vue'));
+import Form from './Form.js'
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {},
+    methods: {
+      onSubmit() {
+        this.form.post('/projects')
+           .then(response => alert('Wahoo!'));
+      }
+    }
 });

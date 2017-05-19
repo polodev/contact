@@ -36,11 +36,18 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+         $this->validate(request(), [
+            'name' => 'required',
+            "username" => 'required',
+            "mobile" => 'required',
+        ]);
         $slug = str_slug($request->username);
         $latestSlug = Contact::whereRaw("slug RLIKE '^{$slug}(-[0-9]*)?$'")
                         ->latest('id')
+                        ->limit(1)
                         ->pluck('slug');
-        if (empty($latestSlug)) {
+        // return ['slug' => $latestSlug];
+        if ($latestSlug){
           $pieces = explode('-', $latestSlug);
           $number = end($pieces);
           $slug = $slug . '-' . ($number + 1);
@@ -69,9 +76,9 @@ class ContactController extends Controller
             'facebook' => request('facebook'),
             'twitter' => request('twitter'),
             'linkedin' => request('linkedin'),
-            'mnemonics' => request('mnemonics'),
+            'about' => request('about'),
         ]);
-        return redirect('/');
+         return ['message' => 'Contact Created'];
     }
 
     /**

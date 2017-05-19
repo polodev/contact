@@ -31,5 +31,5 @@ Route::group(['middleware' => 'auth'], function () {
       'uses' => 'ContactController@show',
       'as' => 'show'
     ]);
-  Route::post('/', 'ContactController@store');
+  Route::post('/contact', 'ContactController@store');
 });
