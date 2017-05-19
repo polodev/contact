@@ -14,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::latest()->get();
+        $contacts = Contact::paginate(3);
         return view('contacts.index', compact('contacts'));
     }
 
@@ -90,7 +90,7 @@ class ContactController extends Controller
     public function show($slug)
     {
         $contact = Contact::where('slug', $slug)->firstOrFail();
-        return view('contacts.profile', compact('contact'));
+        return view('contacts.show', compact('contact'));
     }
 
     /**
@@ -145,8 +145,10 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $contact = Contact::where('slug', $slug)->firstOrFail();
+        $contact->delete();
+        return redirect('/');
     }
 }

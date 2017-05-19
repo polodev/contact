@@ -18,4 +18,8 @@ class Contact extends Model
     $avatar = $this->attributes['avatar'];
     return asset(Storage::url($avatar));
   }
+   public function setNameAttribute($value)
+  {
+      $this->attributes['name'] = ucfirst($value);
+  }
 }

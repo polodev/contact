@@ -56,6 +56,9 @@ nav.nav {
     }
   }
 }
+.contactPaginate {
+  margin: 25px 0;
+}
 
 //single.html
 .singleContact {
@@ -84,11 +87,11 @@ nav.nav {
     .single_status {
       text-align: left;
       padding: 10px;
-      border-bottom: 1px dotted #eee; 
+      border-bottom: 1px dotted #eee;
     }
     .status_header {
       padding: 10px 0;
-      border-bottom: 1px dotted #eee; 
+      border-bottom: 1px dotted #eee;
       display: flex;
       justify-content: space-between;
     }

@@ -42,5 +42,8 @@
     </a>
     @endforeach
   </div>
+  <div class="contactPaginate">
+    {{ $contacts->links() }}
+  </div>
 </div>
 @endsection

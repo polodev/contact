@@ -39,5 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
       'uses' => 'ContactController@update',
       'as' => 'update'
     ]);
+  Route::delete('/profile/{slug}', [
+      'uses' => 'ContactController@destroy',
+      'as' => 'delete'
+    ]);
   Route::post('/contact', 'ContactController@store');
 });

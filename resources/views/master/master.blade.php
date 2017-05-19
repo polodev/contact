@@ -51,7 +51,7 @@
         <a class="nav-item is-tab" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
-            Polo dev | Logout
+           {{ auth()->user()->name }} | Logout
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
@@ -64,5 +64,6 @@
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('bottom_script')
 </body>
 </html>
