@@ -14,7 +14,8 @@ class Contact extends Model
   public function statuses(){
     return $this->hasMany(Status::class);
   }
-  public function getAvatarAttribute($avatar){
+  public function getAvatarUrlAttribute(){
+    $avatar = $this->attributes['avatar'];
     return asset(Storage::url($avatar));
   }
 }

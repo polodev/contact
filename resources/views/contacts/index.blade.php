@@ -33,7 +33,7 @@
   <div class="contacts">
     @foreach($contacts as $contact)
      <a href="/profile/{{$contact->slug}}" class="contactBox">
-      <img src="{{$contact->avatar}}" alt="">
+      <img src="{{$contact->avatarUrl}}" alt="">
       <div class="contactBox__rightContent">
         <p class="name">{{$contact->name}}</p>
         <p>{{ $contact->city }}</p>

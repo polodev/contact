@@ -31,5 +31,13 @@ Route::group(['middleware' => 'auth'], function () {
       'uses' => 'ContactController@show',
       'as' => 'show'
     ]);
+  Route::get('/profile/{slug}/edit', [
+      'uses' => 'ContactController@edit',
+      'as' => 'edit'
+    ]);
+  Route::patch('/profile/{slug}', [
+      'uses' => 'ContactController@update',
+      'as' => 'update'
+    ]);
   Route::post('/contact', 'ContactController@store');
 });

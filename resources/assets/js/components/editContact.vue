@@ -121,39 +121,39 @@
         </div>
 
       <div class="control">
-          <button class="button is-primary" :disabled="form.errors.any()">Create</button>
+          <button class="button is-primary" :disabled="form.errors.any()">update</button>
       </div>
   </form>
 </template>
 <script>
   export default {
+    props: ['contact'],
     data () {
       return {
         response: false,
         form: new Form({
-            name: '',
-            username: '',
-            gender: 0,
-            city: '',
-            relation: '',
-            designation: '',
-            mobile: '',
-            email: '',
-            facebook: '',
-            twitter: '',
-            linkedin: '',
-            address: '',
-            avatar: '',
-            about: '',
+            name: this.contact.name,
+            username: this.contact.username,
+            gender: this.contact.gender,
+            city: this.contact.city,
+            relation: this.contact.relation,
+            designation: this.contact.designation,
+            mobile: this.contact.mobile,
+            email: this.contact.email,
+            facebook: this.contact.facebook,
+            twitter: this.contact.twitter,
+            linkedin: this.contact.linkedin,
+            address: this.contact.address,
+            avatar: this.contact.avatar,
+            about: this.contact.about,
         })
       }
     },
     methods: {
       onSubmit() {
         self = this;
-        this.form.post('/contact')
+        this.form.patch('/profile/' + this.contact.slug)
            .then(response => {
-            self.response = true;
             return location.href = '/'
            });
       }

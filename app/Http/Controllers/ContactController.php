@@ -25,7 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('contacts.form');
+        return view('contacts.create');
     }
 
     /**
@@ -99,9 +99,10 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $contact = Contact::where('slug', $slug)->firstOrFail();
+        return view('contacts.edit', compact('contact'));
     }
 
     /**
@@ -111,9 +112,31 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+
+         $this->validate(request(), [
+            'name' => 'required',
+            "username" => 'required',
+            "mobile" => 'required',
+        ]);
+       Contact::where('slug', $slug)
+         ->update([
+              'name' => request('name'),
+              'username' => request('username'),
+              'gender' => request('gender'),
+              'city' => request('city'),
+              'relation' => request('relation'),
+              'address' => request('address'),
+              'designation' => request('designation'),
+              'mobile' => request('mobile'),
+              'email' => request('email'),
+              'facebook' => request('facebook'),
+              'twitter' => request('twitter'),
+              'linkedin' => request('linkedin'),
+              'about' => request('about'),
+          ]);
+         return ['message' => 'Contact updated'];
     }
 
     /**

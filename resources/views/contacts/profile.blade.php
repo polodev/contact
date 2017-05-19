@@ -3,7 +3,7 @@
     <div class="container">
       <div class="singleContact">
         <div class="box">
-          <img src="{{$contact->avatar}}" alt="">
+          <img src="{{$contact->avatarUrl}}" alt="">
           <p> <strong>{{ $contact->name }}</strong></p>
           <p class="city">{{ $contact->city }}</p>
           <p>
@@ -45,12 +45,12 @@
             </a>
           </p>
           <div class="mnemonics">
-            <p class="title">Mnemonics:</p>
-            {!! $contact->mnemonics !!}
+            <p class="title">About</p>
+            {!! $contact->about !!}
           </div>
           <div class="editDelete">
             <div>
-              <a class="button is-info" href="/profile/edit"> Edit</a>
+              <a class="button is-info" href="/profile/{{$contact->slug}}/edit"> Edit</a>
             </div>
             <div>
               <form action="/profile/delete" method="post">

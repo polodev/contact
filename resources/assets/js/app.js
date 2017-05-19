@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('create-contact', require('./components/createContact.vue'));
+Vue.component('edit-contact', require('./components/editContact.vue'));
 import Form from './Form.js'
 
 const app = new Vue({

@@ -1089,6 +1089,7 @@ window.Vue = __webpack_require__(41);
 
 Vue.component('example', __webpack_require__(37));
 Vue.component('create-contact', __webpack_require__(38));
+Vue.component('edit-contact', __webpack_require__(48));
 
 
 var app = new Vue({
@@ -2141,11 +2142,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       self = this;
       this.form.post('/contact').then(function (response) {
         self.response = true;
-        // return location.href = '/'
+        return location.href = '/';
       });
-      if (this.response) {
-        // return window.href = '/';
-      }
     }
   }
 });
@@ -42359,6 +42357,679 @@ module.exports = function(module) {
 __webpack_require__(10);
 module.exports = __webpack_require__(11);
 
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['contact'],
+  data: function data() {
+    return {
+      response: false,
+      form: new Form({
+        name: this.contact.name,
+        username: this.contact.username,
+        gender: this.contact.gender,
+        city: this.contact.city,
+        relation: this.contact.relation,
+        designation: this.contact.designation,
+        mobile: this.contact.mobile,
+        email: this.contact.email,
+        facebook: this.contact.facebook,
+        twitter: this.contact.twitter,
+        linkedin: this.contact.linkedin,
+        address: this.contact.address,
+        avatar: this.contact.avatar,
+        about: this.contact.about
+      })
+    };
+  },
+
+  methods: {
+    onSubmit: function onSubmit() {
+      self = this;
+      this.form.patch('/profile/' + this.contact.slug).then(function (response) {
+        return location.href = '/';
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(8)(
+  /* script */
+  __webpack_require__(47),
+  /* template */
+  __webpack_require__(49),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/polodev/code/valetFolder/contacts/resources/assets/js/components/editContact.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] editContact.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-18c18a7f", Component.options)
+  } else {
+    hotAPI.reload("data-v-18c18a7f", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('form', {
+    attrs: {
+      "method": "POST",
+      "action": "/projects"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.onSubmit($event)
+      },
+      "keydown": function($event) {
+        _vm.form.errors.clear($event.target.name)
+      }
+    }
+  }, [_c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.name),
+      expression: "form.name"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "name",
+      "type": "text",
+      "placeholder": "Name"
+    },
+    domProps: {
+      "value": (_vm.form.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.name = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(0)]), _vm._v(" "), (_vm.form.errors.has('name')) ? _c('span', {
+    staticClass: "help is-danger",
+    domProps: {
+      "textContent": _vm._s(_vm.form.errors.get('name'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.username),
+      expression: "form.username"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "username",
+      "type": "text",
+      "placeholder": "username(slug)"
+    },
+    domProps: {
+      "value": (_vm.form.username)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.username = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(1)]), _vm._v(" "), (_vm.form.errors.has('username')) ? _c('span', {
+    staticClass: "help is-danger",
+    domProps: {
+      "textContent": _vm._s(_vm.form.errors.get('username'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "field has-addons"
+  }, [_c('label', {
+    staticClass: "label single_left_label"
+  }, [_vm._v("gender")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('span', {
+    staticClass: "select"
+  }, [_c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.gender),
+      expression: "form.gender"
+    }],
+    attrs: {
+      "name": "gender"
+    },
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.form.gender = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, [_c('option', {
+    attrs: {
+      "selected": ""
+    },
+    domProps: {
+      "value": 1
+    }
+  }, [_vm._v("male")]), _vm._v(" "), _c('option', {
+    domProps: {
+      "value": 0
+    }
+  }, [_vm._v("female")])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.city),
+      expression: "form.city"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "city",
+      "type": "text",
+      "placeholder": "City"
+    },
+    domProps: {
+      "value": (_vm.form.city)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.city = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(2)])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.relation),
+      expression: "form.relation"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "relation",
+      "type": "text",
+      "placeholder": "Relation"
+    },
+    domProps: {
+      "value": (_vm.form.relation)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.relation = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.designation),
+      expression: "form.designation"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "designation",
+      "type": "text",
+      "placeholder": "Designation"
+    },
+    domProps: {
+      "value": (_vm.form.designation)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.designation = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(4)])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.mobile),
+      expression: "form.mobile"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "mobile",
+      "type": "text",
+      "placeholder": "Mobile"
+    },
+    domProps: {
+      "value": (_vm.form.mobile)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.mobile = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(5)]), _vm._v(" "), (_vm.form.errors.has('mobile')) ? _c('span', {
+    staticClass: "help is-danger",
+    domProps: {
+      "textContent": _vm._s(_vm.form.errors.get('mobile'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.email),
+      expression: "form.email"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "email",
+      "type": "email",
+      "placeholder": "Email"
+    },
+    domProps: {
+      "value": (_vm.form.email)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.email = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(6)])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.facebook),
+      expression: "form.facebook"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "facebook",
+      "type": "text",
+      "placeholder": "Facebook",
+      "value": "http://facebook.com/"
+    },
+    domProps: {
+      "value": (_vm.form.facebook)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.facebook = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(7)])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.twitter),
+      expression: "form.twitter"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "twitter",
+      "type": "text",
+      "placeholder": "Twitter",
+      "value": "http://twitter.com/"
+    },
+    domProps: {
+      "value": (_vm.form.twitter)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.twitter = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(8)])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control has-icons-left"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.linkedin),
+      expression: "form.linkedin"
+    }],
+    staticClass: "input",
+    attrs: {
+      "name": "linkedin",
+      "type": "text",
+      "placeholder": "LinkedIn",
+      "value": "http://linkedin.com/"
+    },
+    domProps: {
+      "value": (_vm.form.linkedin)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.linkedin = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(9)])]), _vm._v(" "), _vm._m(10), _vm._v(" "), _vm._m(11), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("About")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.form.about),
+      expression: "form.about"
+    }],
+    staticClass: "textarea",
+    attrs: {
+      "name": "about",
+      "type": "text",
+      "placeholder": "about"
+    },
+    domProps: {
+      "value": (_vm.form.about)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.form.about = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "control"
+  }, [_c('button', {
+    staticClass: "button is-primary",
+    attrs: {
+      "disabled": _vm.form.errors.any()
+    }
+  }, [_vm._v("update")])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-user"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-id-card"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-building"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-users"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-cubes"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-mobile"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-envelope"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-facebook"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-twitter"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-small is-left"
+  }, [_c('i', {
+    staticClass: "fa fa-linkedin"
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('textarea', {
+    staticClass: "textarea",
+    attrs: {
+      "name": "address",
+      "type": "text",
+      "placeholder": "Address"
+    }
+  })])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("User Avatar")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    attrs: {
+      "type": "file",
+      "name": "avatar"
+    }
+  })])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-18c18a7f", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
