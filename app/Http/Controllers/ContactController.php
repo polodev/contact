@@ -47,9 +47,9 @@ class ContactController extends Controller
                         ->limit(1)
                         ->pluck('slug');
         // return ['slug' => $latestSlug];
-        if ($latestSlug){
+        if (count($latestSlug) != 0) {
           $pieces = explode('-', $latestSlug);
-          $number = end($pieces);
+          $number = intval( end($pieces) );
           $slug = $slug . '-' . ($number + 1);
         }
 

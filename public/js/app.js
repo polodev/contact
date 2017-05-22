@@ -2119,13 +2119,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       response: false,
       form: new Form({
-        name: '',
-        username: '',
-        gender: 0,
+        name: 'polo dev',
+        username: 'polo dev',
+        gender: 1,
         city: '',
         relation: '',
         designation: '',
-        mobile: '',
+        mobile: '8374450929',
         email: '',
         facebook: '',
         twitter: '',
@@ -32295,13 +32295,13 @@ var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(30),
   /* template */
-  __webpack_require__(42),
+  __webpack_require__(43),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/polodev/code/valetFolder/contacts/resources/assets/js/components/Example.vue"
+Component.options.__file = "/opt/lampp/htdocs/sandbox/contact/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -32312,9 +32312,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2ebf3b93", Component.options)
+    hotAPI.createRecord("data-v-9ad3205c", Component.options)
   } else {
-    hotAPI.reload("data-v-2ebf3b93", Component.options)
+    hotAPI.reload("data-v-9ad3205c", Component.options)
   }
 })()}
 
@@ -32329,13 +32329,13 @@ var Component = __webpack_require__(2)(
   /* script */
   __webpack_require__(31),
   /* template */
-  __webpack_require__(43),
+  __webpack_require__(42),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/polodev/code/valetFolder/contacts/resources/assets/js/components/createContact.vue"
+Component.options.__file = "/opt/lampp/htdocs/sandbox/contact/resources/assets/js/components/createContact.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] createContact.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -32346,9 +32346,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-35bbb7e6", Component.options)
+    hotAPI.createRecord("data-v-972a25e8", Component.options)
   } else {
-    hotAPI.reload("data-v-35bbb7e6", Component.options)
+    hotAPI.reload("data-v-972a25e8", Component.options)
   }
 })()}
 
@@ -32369,7 +32369,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/polodev/code/valetFolder/contacts/resources/assets/js/components/editContact.vue"
+Component.options.__file = "/opt/lampp/htdocs/sandbox/contact/resources/assets/js/components/editContact.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] editContact.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -32380,9 +32380,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-18c18a7f", Component.options)
+    hotAPI.createRecord("data-v-8d52f184", Component.options)
   } else {
-    hotAPI.reload("data-v-18c18a7f", Component.options)
+    hotAPI.reload("data-v-8d52f184", Component.options)
   }
 })()}
 
@@ -32853,41 +32853,12 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-18c18a7f", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-8d52f184", module.exports)
   }
 }
 
 /***/ }),
 /* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_vm._v("\n                    I'm an example component!\n                ")])])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-2ebf3b93", module.exports)
-  }
-}
-
-/***/ }),
-/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -33350,7 +33321,36 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-35bbb7e6", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-972a25e8", module.exports)
+  }
+}
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Example Component")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_vm._v("\n                    I'm an example component!\n                ")])])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-9ad3205c", module.exports)
   }
 }
 

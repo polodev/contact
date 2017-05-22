@@ -131,13 +131,13 @@
       return {
         response: false,
         form: new Form({
-            name: '',
-            username: '',
-            gender: 0,
+            name: 'polo dev',
+            username: 'polo dev',
+            gender: 1,
             city: '',
             relation: '',
             designation: '',
-            mobile: '',
+            mobile: '8374450929',
             email: '',
             facebook: '',
             twitter: '',
