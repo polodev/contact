@@ -1,3 +1,9 @@
+//some fixing after cloning
+composer dump-autoload
+cp .env.example .env
+php artisan key:generate
+php artisan config:clear
+
 //for active link
 <a class="nav-item is-tab is-hidden-mobile {{ (Request::is('/') ? 'is-active' : '') }}" href="/">
   <span class="icon is-small"><i class="fa fa-home"></i></span> &nbsp;<span>Home</span>
