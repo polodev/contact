@@ -1,5 +1,12 @@
 <template>
   <form method="POST" action="/projects" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
+        <div class="field">
+          <label class="label">Upload avatar</label>
+          <div id="croppie"></div>
+          <p class="control">
+          <input type="file" name="avatar" @change="setupFileUploader">
+          </p>
+        </div>
       <div class="field">
           <p class="control has-icons-left">
             <input class="input" name="name" type="text" placeholder="Name" v-model="form.name">
@@ -108,12 +115,6 @@
           </p>
         </div>
         <div class="field">
-          <label class="label">User Avatar</label>
-          <p class="control">
-          <input type="file" name="avatar">
-          </p>
-        </div>
-        <div class="field">
           <label class="label">About</label>
           <p class="control">
             <textarea class="textarea" name="about" type="text" placeholder="about" v-model="form.about"></textarea>
@@ -126,10 +127,23 @@
   </form>
 </template>
 <script>
+  import Croppie from 'croppie';
   export default {
+    mounted () {
+      this.image = this.form.gender ==  1 ? 'http://localhost:8000/storage/avatars/default/male.png' : 'http://localhost:8000/storage/avatars/default/female.png'
+      this.setupCroppie();
+      this.$on('imageUploaded', imageData => {
+        this.image = imageData
+        this.croppie.destroy()
+        this.setupCroppie()
+      })
+    },
     data () {
       return {
         response: false,
+        croppie: null,
+        image: null,
+        userAddedImage: false,
         form: new Form({
             name: 'polo dev',
             username: 'polo dev',
@@ -149,14 +163,59 @@
       }
     },
     methods: {
+
       onSubmit() {
         self = this;
-        this.form.post('/contact')
-           .then(response => {
-            self.response = true;
-            return location.href = '/'
-           });
-      }
+        if(this.userAddedImage) {
+          this.croppie.result({
+            type: 'canvas',
+            size: 'viewport',
+          }).then(response => {
+            self.form.avatar = response;
+            this.form.post('/contact')
+               .then(response => {
+                return location.href = '/'
+               });
+          })
+        } else {
+          this.form.post('/contact')
+             .then(response => {
+              self.response = true;
+              return location.href = '/'
+             });
+        }
+      },
+    setupCroppie () {
+      var el = document.getElementById('croppie');
+      this.croppie = new Croppie ( el, {
+        viewport: { width: 220, height: 220 },
+        boundary: { width: 300, height: 300 },
+        showZoomer: true,
+        enableOrientation: false
+      })
+      this.croppie.bind({
+        url: this.image,
+        orientation: 4
+      });
     },
-  }
+    setupFileUploader (e) {
+      let files = e.target.files || e.dataTransfer.files;
+      if (!files.length) {
+        return ;
+      }
+      this.createImage(files[0]);
+    },
+    createImage (file) {
+      var image = new Image();
+      var reader = new FileReader();
+      this.userAddedImage = true;
+      var vm = this;
+      reader.onload = e => {
+        vm.image = e.target.result
+        vm.$emit('imageUploaded', e.target.result)
+      }
+      reader.readAsDataURL(file);
+    },
+  },
+}
 </script>

@@ -14,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::paginate(3);
+        $contacts = Contact::orderBy('id', 'desc')->paginate(3);
         return view('contacts.index', compact('contacts'));
     }
 
@@ -52,13 +52,22 @@ class ContactController extends Controller
           $number = intval( end($pieces) );
           $slug = $slug . '-' . ($number + 1);
         }
-
         $avatar = 'public/avatars/default/female.png';
         if (intval(request('gender'))) {
             $avatar = 'public/avatars/default/male.png';
         }
-        if ($request->hasFile('avatar')) {
-            $avatar = $request->avatar->store('public/avatars');
+        if (request('avatar')) {
+            $data = request('avatar');
+            list($type, $data) = explode(';', $data);
+            list(, $data) = explode(',', $data);
+            $data = base64_decode($data);
+            $imageName = time().'.png';
+            $path = storage_path('app/public/avatars/');
+            if(!file_exists($path)) {
+              mkdir($path, 0755, true);
+            }
+            file_put_contents($path . $imageName, $data);
+            $avatar ='avatars/' . $imageName;
         }
         Contact::create([
             'user_id' => auth()->id(),
@@ -120,6 +129,22 @@ class ContactController extends Controller
             "username" => 'required',
             "mobile" => 'required',
         ]);
+        $contact = Contact::where('slug', $slug)->firstOrFail();
+        $avatar = $contact->avatar;
+        if (request('avatar')) {
+            unlink('app/public/' . $avatar);
+            $data = request('avatar');
+            list($type, $data) = explode(';', $data);
+            list(, $data) = explode(',', $data);
+            $data = base64_decode($data);
+            $imageName = time().'.png';
+            $path = storage_path('app/public/avatars/');
+            if(!file_exists($path)) {
+              mkdir($path, 0755, true);
+            }
+            file_put_contents($path . $imageName, $data);
+            $avatar ='avatars/' . $imageName;
+        }
        Contact::where('slug', $slug)
          ->update([
               'name' => request('name'),

@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,9 @@
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/welcome', function () {
+  return view('croppie');
+});
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/', [
@@ -44,4 +48,19 @@ Route::group(['middleware' => 'auth'], function () {
       'as' => 'delete'
     ]);
   Route::post('/contact', 'ContactController@store');
+  Route::post('/upload', function () {
+    $avatar = request('avatar');
+    list($type, $data) = explode(';', $avatar);
+    list(, $data) = explode(',', $data);
+    $data = base64_decode($data);
+    $imageName = time().'.png';
+    $path = storage_path('imagas/');
+    if(!file_exists($path)) {
+      mkdir($path, 0755, true);
+    }
+    file_put_contents($path . $imageName, $data);
+    $imageUrl ='images/' . $imageName;
+    return ['message' => $imageUrl];
+
+  });
 });
